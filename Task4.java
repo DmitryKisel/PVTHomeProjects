@@ -12,7 +12,10 @@ public class Task4 {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String s = reader.readLine();
         int number = Integer.parseInt(s);
-        int lastDigit = number % 10;
+        int lastTwoDigit = number%100;
+        if (lastTwoDigit >=11 && lastTwoDigit<=19)
+        {System.out.println(number + " рублей");}
+        else { int lastDigit = number % 10;
         switch (lastDigit) {
             case 1: {
                 System.out.println(number + " рубль");
@@ -37,6 +40,7 @@ public class Task4 {
                 System.out.println(number + " рублей");
                 break;
             }
+        }
         }
     }
 }
