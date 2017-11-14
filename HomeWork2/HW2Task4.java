@@ -28,13 +28,13 @@ public class HW2Task4 {
            for (int i = 0; i < array.length - 1; i++) {
 
                if (array[i + 1] != array[i] + 1) {
-                   System.out.println("Number do not form growing up sequence");
+                   System.out.println("Number does not form growing up sequence");
                    break;
                } else count++;
            }
 
            if (count == array.length -1)
-           System.out.println("Number form growing up sequence");
+           System.out.println("Number forms growing up sequence");
 
 
 
