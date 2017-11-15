@@ -1,7 +1,7 @@
 import  java.io.*;
 public class HW2Task4 {
     /*
-   ДЗ2 Задача 3.
+   ДЗ2 Задача 4.
    Условие: Написать программу, определяющую, образуют ли цифры некоторого числа строго возрастающую последовательность.
    Например: 123 – образуют, 212 – не образуют.
 
@@ -28,13 +28,13 @@ public class HW2Task4 {
            for (int i = 0; i < array.length - 1; i++) {
 
                if (array[i + 1] != array[i] + 1) {
-                   System.out.println("Number do not form growing up sequence");
+                   System.out.println("Number does not form growing up sequence");
                    break;
                } else count++;
            }
 
            if (count == array.length -1)
-           System.out.println("Number form growing up sequence");
+           System.out.println("Number forms growing up sequence");
 
 
 
