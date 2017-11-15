@@ -14,7 +14,7 @@ public class HW2Task2 {
     public static void main(String[] args) throws IOException {
 
 
-       // creating  array for initial data and map for counting duplicated elements
+       // creating an array for initial data and a map for counting duplicated elements
         float[] array = new float[10];
         Map<Float, Integer> map = new HashMap<>();
 
@@ -24,7 +24,7 @@ public class HW2Task2 {
             array [i] = Float.parseFloat(reader.readLine());
         }
 
-        //Searching for duplicated elements anf putting them in to map
+        //Searching for duplicated elements and putting them in to the map
 
         for (int i = 0; i < array.length; i++) {
             if (map.containsKey(array[i])){
