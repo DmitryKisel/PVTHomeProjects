@@ -153,8 +153,8 @@ public class SolutionTask1 {
     /**
      * This method removes incoming number from array and decrease incoming array size
       * @param array incoming array
-     * @param elementToDelete
-     * @return new array only with even numbers include
+     * @param elementToDelete incoming element to delete
+     * @return new array with new size after deleting
      */
 
     public static int[] removeElement(int[] array, int elementToDelete)
