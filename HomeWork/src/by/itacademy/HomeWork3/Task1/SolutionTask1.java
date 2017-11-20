@@ -132,11 +132,16 @@ public class SolutionTask1 {
             return  array;
         }
 
+    /**
+     * This method finds even numbers in incoming array
+     * @param array incoming array
+     * @return new array only with even numbers include
+     */
     public static int[] evenNumbers (int[] array){
         int even = array.length;
 
         int[] evenArray = new int[even];
-        // This loop lokig for even numbers and adding
+        // This loop looking for even numbers and adding
         for(int i = 0; i < array.length; i++){
             if (array[i]%2 == 0) evenArray[i] = array[i];
             else evenArray[i] = -1;
@@ -144,6 +149,13 @@ public class SolutionTask1 {
         evenArray = removeElement(evenArray, -1);
         return  evenArray;
         }
+
+    /**
+     * This method removes odd numbers and decrease incoming array size
+      * @param array incoming array
+     * @param elementToDelete
+     * @return new array only with even numbers include
+     */
 
     public static int[] removeElement(int[] array, int elementToDelete)
     {
