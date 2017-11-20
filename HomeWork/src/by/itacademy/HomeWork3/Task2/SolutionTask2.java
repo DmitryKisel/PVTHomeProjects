@@ -5,7 +5,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-
+/*
+ДЗ№3 Задача№2
+Условие:Представьте, что вам необходимо написать метод, определяющий количество
+страниц для вывода N новостей с учетом того, что на одной странице помещается
+10 записей. В итоге у вас будет метод, который возвращает количество страниц,
+а на вход принимает количество новостей. Помните, что тут округлять нужно всегда
+к большему.
+ */
 public class SolutionTask2 {
     public static void main(String[] args) throws IOException{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
