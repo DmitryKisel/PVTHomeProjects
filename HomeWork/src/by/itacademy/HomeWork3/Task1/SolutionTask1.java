@@ -151,7 +151,7 @@ public class SolutionTask1 {
         }
 
     /**
-     * This method removes odd numbers and decrease incoming array size
+     * This method removes incoming number from array and decrease incoming array size
       * @param array incoming array
      * @param elementToDelete
      * @return new array only with even numbers include
