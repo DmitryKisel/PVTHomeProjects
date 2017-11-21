@@ -28,4 +28,20 @@ public class Patient {
     public boolean isPatientChartIsAvailable() {
         return patientChartIsAvailable;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDiagnostic(String diagnostic) {
+        this.diagnostic = diagnostic;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setPatientChartIsAvailable(boolean patientChartIsAvailable) {
+        this.patientChartIsAvailable = patientChartIsAvailable;
+    }
 }
