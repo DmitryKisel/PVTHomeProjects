@@ -56,7 +56,8 @@ public class SolutionTask1 {
      */
     public static void  printArray(int[] array ){
         for (int i = 0; i < array.length; i++){
-            if (i == 0) System.out.print("\"" + array[i] + "\"");
+            if (i == 0) System.out.print("[\"" + array[i] + "\"");
+            else if(i == array.length -1 ) System.out.print("|\"" + array[i] + "\"]");
             else {
                 System.out.print("|\"" + array[i] + "\"");
             }
