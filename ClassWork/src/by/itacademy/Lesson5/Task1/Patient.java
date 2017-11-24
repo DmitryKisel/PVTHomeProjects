@@ -12,6 +12,7 @@ public class Patient extends Human{
         return doctorName;
     }
 
+
     public void setChartNumber(String chartNumber) {
         this.chartNumber = chartNumber;
     }

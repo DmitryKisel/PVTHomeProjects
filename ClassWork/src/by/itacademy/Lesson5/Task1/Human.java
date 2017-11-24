@@ -1,12 +1,12 @@
 package by.itacademy.Lesson5.Task1;
 
-public abstract  class Human {
+public abstract   class Human {
     private String name;
     private int age;
     private String address;
     private String passportNumber;
 
-    public String getName() {
+    public  String getName() {
         return name;
     }
 
