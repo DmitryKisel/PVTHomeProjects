@@ -26,7 +26,10 @@ public class Main {
         */
 
         for (Patient person: patient){
-            System.out.println("Пациент " + person.getName() + " - " + ageToWord(person.getAge()));
+            printPatient(person);
+        }
+        for (Patient person: patient){
+             System.out.println("Пациент " + person.getName() + " - Возраст = " + ageToWord(person.getAge()));
         }
 
 
