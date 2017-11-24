@@ -1,4 +1,4 @@
-package by.itacademy.Lesson4.Task2;
+/*package by.itacademy.Lesson4.Task2;
 import java.util.Arrays;
 
 public class Main {
@@ -8,3 +8,4 @@ public class Main {
         long spentTime = System.currentTimeMillis() - start;
     }
 }
+*/

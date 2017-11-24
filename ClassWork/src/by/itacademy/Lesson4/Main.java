@@ -1,8 +1,8 @@
 package by.itacademy.Lesson4;
-
+ /*
 public class Main {
     public static void main(String[] args) {
-        People people3 = new People("CCC", 55);
+      People people3 = new People("CCC", 55);
         People[] peopleArray = new People[2];
         People people1 = new People();
         people1.setName("AAAA");
@@ -34,3 +34,4 @@ public class Main {
 
     }
 }
+*/

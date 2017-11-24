@@ -1,10 +1,10 @@
 package by.itacademy.HomeWork4.Task1;
 
 public class Patient {
-    String name;
-    String 	diagnostic;
-    int age;
-    boolean patientChartIsAvailable;
+    private String name;
+    private String 	diagnostic;
+    private int age;
+    private boolean patientChartIsAvailable;
 
     public Patient(String name, String diagnostic, int age, boolean patientChartIsAvailable) {
         this.name = name;
