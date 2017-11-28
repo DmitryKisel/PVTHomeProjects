@@ -53,6 +53,7 @@ public class ATM {
         int rest100 = sum%100;
         if(rest100==0 ) return true;
         else{
+            // if (rest100%20 == 0)
             int rest50 = (rest100)%50;
             if (rest50 == 0) return true;
             else {
