@@ -6,6 +6,8 @@ public class Main {
         Button button = new Button();
         button.setMain(main);
 
+
+
         try {
             Thread.sleep(5000);
         }catch (InterruptedException e){}
