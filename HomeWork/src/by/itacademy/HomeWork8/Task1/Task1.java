@@ -54,7 +54,7 @@ public class Task1 {
                 System.out.println("Ошибка ввода данных");
             }
             if (exitCheck(operand)){
-                String pattern = "[+, -, *, /]";
+                String pattern = "[+, \\-, *, /]";
                 Pattern p = Pattern.compile(pattern);
                 Matcher m = p.matcher(operand);
 

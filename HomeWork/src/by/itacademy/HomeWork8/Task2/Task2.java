@@ -14,8 +14,8 @@ public class Task2 {
         String firstN = null;
         String secondN = null;
         String operand = null;
-        double firstNumber;
-        double secondNumber;
+        double firstNumber = 0;
+        double secondNumber = 0;
 
         System.out.println("Вас приветстует программа \"Калькулятор\" ");
         System.out.println("Для выходя наберите \"exit\"");
@@ -25,69 +25,81 @@ public class Task2 {
 
             System.out.println("Введите первое число");
             try{
-                firstN = reader.readLine();}
-            catch (InputDataException e) {
-                System.out.println(e.getRussianMessage());
-            }
+                firstN = reader.readLine();
             if (exitCheck(firstN)){
                 String pattern = "-?\\d+\\.?\\d*";
                 Pattern p = Pattern.compile(pattern);
                 Matcher m = p.matcher(firstN);
 
                 if(!m.matches()) {
-                    printError();
                     menuCase = "work";
-                    break;
+                    throw  new InputDataException("Число не соответствует формату ввода");
+
+
                 }
                 else {
                     firstNumber = Double.parseDouble(firstN);
                     menuCase = "work";
                 }
             }
-            else {menuCase = "exit"; break;}
+            else {
+                menuCase = "exit";
+                break;}
+            }
+            catch (InputDataException e) {
+                System.out.println(e.getRussianMessage());
+            }
 
 
             System.out.println("Введите операцию");
-            try{
-                operand = reader.readLine();}
-            catch (InputDataException e) {
-                System.out.println(e.getRussianMessage());
-            }
-            if (exitCheck(operand)){
-                String pattern = "[+, -, *, /]";
-                Pattern p = Pattern.compile(pattern);
-                Matcher m = p.matcher(operand);
+            try {
+                operand = reader.readLine();
+                if (exitCheck(operand)) {
+                    String pattern = "[+, *, /, \\-]";
+                    Pattern p = Pattern.compile(pattern);
+                    Matcher m = p.matcher(operand);
 
-                if(!m.matches()) {
-                    printError();
-                    menuCase = "work";
+                    if (!m.matches()) {
+                        menuCase = "work";
+                        throw new InputDataException("Математический символ не соответствует формату ввода");
+
+
+                    }
+                } else {
+                    menuCase = "exit";
                     break;
                 }
             }
-            else {menuCase = "exit"; break;}
+            catch (InputDataException e) {
+                System.out.println(e.getRussianMessage());
+            }
 
             System.out.println("Введите второе число");
             try{
-                secondN = reader.readLine();}
+                secondN = reader.readLine();
+                if (exitCheck(secondN)){
+                    String pattern = "-?\\d+\\.?\\d*";
+                    Pattern p = Pattern.compile(pattern);
+                    Matcher m = p.matcher(secondN);
+
+                    if(!m.matches()) {
+                        menuCase = "work";
+                        throw  new InputDataException("Число не соответствует формату ввода");
+
+
+                    }
+                    else {
+                        secondNumber = Double.parseDouble(secondN);
+                        menuCase = "work";
+                    }
+                }
+                else {
+                    menuCase = "exit";
+                    break;}
+            }
             catch (InputDataException e) {
                 System.out.println(e.getRussianMessage());
             }
-            if (exitCheck(secondN)){
-                String pattern = "\\d+\\.?\\d*";
-                Pattern p = Pattern.compile(pattern);
-                Matcher m = p.matcher(secondN);
-
-                if(!m.matches()) {
-                    printError();
-                    menuCase = "work";
-                    break;
-                }
-                else {
-                    secondNumber = Double.parseDouble(secondN);
-                    menuCase = "work";
-                }
-            }
-            else {menuCase = "exit"; break;}
 
             try {
                 result = myCalc.count(firstNumber,secondNumber, operand );
@@ -120,8 +132,5 @@ public class Task2 {
         }
     }
 
-    public  static  void printError(){
-        System.out.println("Данные не соответствуют формату ввода");
-    }
 
 }

@@ -1,16 +1,16 @@
 package by.itacademy.HomeWork8.Task2;
 
-import java.io.IOException;
 
-public class InputDataException extends IOException{
+public class InputDataException extends Exception{
+    private String russianMessage;
 
-
-    public  InputDataException() {
-        super.getMessage();
+    public InputDataException( String russianMessage) {
+        this.russianMessage = russianMessage;
     }
 
-    public String getRussianMessage(){
-        String text = "Ошибка ввода данных";
-        return text;
+
+    public String getRussianMessage() {
+        return russianMessage;
     }
 }
+
