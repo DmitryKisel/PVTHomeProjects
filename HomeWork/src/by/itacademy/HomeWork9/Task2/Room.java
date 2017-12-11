@@ -20,10 +20,10 @@ public class Room {
 
 
 
-    public Room(String roomName, double square, int windows){
+    public Room(String roomName, double square, int windowsNumber){
         this.roomName = roomName;
         this.square = square;
-        this.windowsNumber = windows;
+        this.windowsNumber = windowsNumber;
         usedSquare = 0;
         light = windowsNumber*700;
         lamps = new ArrayList<>();

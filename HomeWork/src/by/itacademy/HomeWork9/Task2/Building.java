@@ -56,10 +56,11 @@ public class Building {
         for(int i = 0; i < building.rooms.size(); i++){
             String wind = "";
             System.out.println(" " + building.rooms.get(i).getRoomName() );
-            if(i < 11 && i > 19) {
-                if (i % 10 == 1) {
+            int j = building.rooms.get(i).getWindowsNumber();
+            if(j < 11 || j > 19) {
+                if (j%10  == 1) {
                     wind = "окно";
-                } else if (i % 10 == 2 || i % 10 == 3 || i % 10 == 4) {
+                } else if (j%10 == 2 || j%10  == 3 || j%10  == 4) {
                     wind = "окна";
                 }
 
