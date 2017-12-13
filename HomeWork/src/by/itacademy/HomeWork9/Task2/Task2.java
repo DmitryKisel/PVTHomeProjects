@@ -10,7 +10,9 @@ public class Task2 {
     public static  final  int LIGHT_UP_LIMIT = 7000;
     public static  final  int LIGHT_DOWN_LIMIT = 300;
 
-    public static void main(String[] args) throws IOException, NullPointerException{
+    public static void main(String[] args) throws IOException, NullPointerException,
+                                                  SpaceUsageTooMuchException, IlluminanceTooMuchException{
+
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String line;
         String buildingName;
@@ -82,10 +84,8 @@ public class Task2 {
 
 
                             System.out.println("В настоящее время освещенность в комнате \"" +roomName +"\" равна " + building.getRoom(roomName).getLight());
-                            if (building.getRoom(roomName).getLight() > LIGHT_UP_LIMIT ) {
-                                System.out.println("Предел освещения в комнате превышен");
-                                break;
-                            }
+                            if (building.getRoom(roomName).getLight() > LIGHT_UP_LIMIT ) throw new IlluminanceTooMuchException ("Предел освещения в комнате превышен");
+
                             else {
                                 do {
                                     System.out.println("1. Для добавление источника света нажмите 1 ");
@@ -152,10 +152,8 @@ public class Task2 {
 
 
                             System.out.println("В настоящее время в комнате \"" +roomName +"\" площадью " + building.getRoom(roomName).getSquare() + "кв.м,  занято " + building.getRoom(roomName).getUsedSquare() + " кв.м");
-                            if (building.getRoom(roomName).getUsedSquare() >= 0.7*building.getRoom(roomName).getSquare()) {
-                                System.out.println("В комнает нет свободного места");
-                                break;
-                            }
+                            if (building.getRoom(roomName).getUsedSquare() >= 0.7*building.getRoom(roomName).getSquare())  throw  new SpaceUsageTooMuchException();
+
                             else {
                                 do {
                                     System.out.println("1. Для добавление предмета мебели нажмите 1 ");
