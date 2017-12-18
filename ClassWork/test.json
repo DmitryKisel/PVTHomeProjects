@@ -1,5 +1,7 @@
 {
   "name": "Test file",
+  "gender": 0,
+  "date": "2016-12-18",
   "people": [
       {
         "id": 0,

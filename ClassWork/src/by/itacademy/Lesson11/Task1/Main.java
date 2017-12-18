@@ -5,6 +5,7 @@ package by.itacademy.Lesson11.Task1;
 import by.itacademy.Lesson11.Task1.Entity.People;
 import by.itacademy.Lesson11.Task1.Entity.Root;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -19,6 +20,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Main {
@@ -138,10 +140,22 @@ public class Main {
 
     private  static  void parseGson(){
         try{
+
+           // Variant with converter
             BufferedReader reader = new BufferedReader(new FileReader("test.json"));
-            Gson gson = new Gson();
-            Root root = gson.fromJson(reader, Root.class);
-            System.out.println(root.toString());
+
+            GsonBuilder builder = new GsonBuilder()
+                    .registerTypeAdapter(Date.class, new DateGsonConverter());
+            Gson gsonConv = builder.create();
+            Root rootConv = gsonConv.fromJson(reader,Root.class);
+            System.out.println(rootConv.toString());
+
+            // gson.toJson () - creates new Json file
+
+//           // Standart variant
+//            Gson gson = new Gson();
+//            Root root = gson.fromJson(reader, Root.class);
+//            System.out.println(root.toString());
 
         }catch (Exception e){
             System.out.println("Невозможно открыть json error = " + e.toString());
