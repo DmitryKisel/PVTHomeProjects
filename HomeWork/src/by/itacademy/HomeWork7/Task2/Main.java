@@ -121,11 +121,26 @@ public class Main {
             sb.append("и ");
             sb.append(averageMonth);
             switch (averageMonth){
-                case 1: sb.append(" месяц");
-                case 2: sb.append(" месяца");
-                case 3: sb.append(" месяца");
-                case 4: sb.append(" месяца");
-                default: sb.append(" месяцев");
+                case 1: {
+                    sb.append(" месяц");
+                    break;
+                }
+                case 2: {
+                    sb.append(" месяца");
+                    break;
+                }
+                case 3: {
+                    sb.append(" месяца");
+                    break;
+                }
+                case 4: {
+                    sb.append(" месяца");
+                    break;
+                }
+                default: {
+                    sb.append(" месяцев");
+                    break;
+                }
             }
             System.out.println(sb.toString().trim());
         }
