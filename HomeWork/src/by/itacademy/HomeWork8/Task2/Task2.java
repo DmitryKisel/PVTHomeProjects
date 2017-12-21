@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Task2 {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InputDataException {
         Calc myCalc = new Calc();
         double result = 0;
         String menuCase = "work";
