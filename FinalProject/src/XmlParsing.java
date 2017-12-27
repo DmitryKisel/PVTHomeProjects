@@ -5,8 +5,6 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 
-
-
 public class XmlParsing implements FileParsing {
 
     /**
@@ -27,7 +25,6 @@ public class XmlParsing implements FileParsing {
        } catch (SAXException e){
            System.out.println("Ошибка парсинга XML файла " + e.toString());
        }
-
         return handler.getRoot();
     }
 }

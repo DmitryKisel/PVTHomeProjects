@@ -40,7 +40,6 @@ public class Root {
         this.employees = employees;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -62,7 +61,6 @@ public class Root {
         result = 31 * result + employees.hashCode();
         return result;
     }
-
 
     @Override
     public String toString() {

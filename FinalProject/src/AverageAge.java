@@ -31,11 +31,8 @@ public class AverageAge {
             monthSum = monthSum + ageYears*12+ ageMonth;
             count++;
         }
-
-        int averageYears = (monthSum/12)/count;
-        int averageMonth = Math.round((monthSum - averageYears*12*count)/count);
-        printAverageAge(averageYears, averageMonth);
-
+        int avg = Math.round(monthSum)/count;
+        printAverageAge(avg/12, avg%12);
     }
 
     /**
@@ -53,11 +50,10 @@ public class AverageAge {
             case 3: { sb.append(" года ");}
             case 4: { sb.append(" года ");}
             default:  { sb.append(" лет ");}
-
         }
 
         if (averageMonth == 0) {
-            System.out.println(sb.toString().trim());
+            System.out.println(sb.toString());
         }
         else {
             sb.append("и ");
@@ -72,21 +68,23 @@ public class AverageAge {
                     sb.append(" месяца");
                     break;
                 }
+
                 case 3: {
                     sb.append(" месяца");
                     break;
                 }
+
                 case 4: {
                     sb.append(" месяца");
                     break;
                 }
+
                 default: {
                     sb.append(" месяцев");
                     break;
                 }
             }
-            System.out.println(sb.toString().trim());
+            System.out.println(sb.toString().);
         }
-
     }
 }

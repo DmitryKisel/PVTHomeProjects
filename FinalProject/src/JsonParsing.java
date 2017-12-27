@@ -22,9 +22,6 @@ public class JsonParsing implements FileParsing {
         GsonBuilder builder = new GsonBuilder().registerTypeAdapter(Date.class, new DateGsonConverter());
         Gson gsonConv = builder.create();
         Root root = gsonConv.fromJson(reader, Root.class);
-
         return root;
-
     }
-
 }

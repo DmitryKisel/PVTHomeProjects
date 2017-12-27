@@ -24,7 +24,5 @@ public class SortByBirthDayComporator implements Comparator<Employee> {
         else  if(day1 > day2) return  1;
         else  if (day1 < day2) return -1;
         else  return 0;
-
-
     }
 }

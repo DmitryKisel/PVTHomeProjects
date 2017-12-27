@@ -42,7 +42,7 @@ public class SearchDate extends Search {
                     SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
                     String birthDate = sdf.format(person.getDateOfBirth());
                     if (str.equals(birthDate)) {
-                        Main.printEmployee(person);
+                        Employee.printEmployee(person);
                         countName++;
                     }
                 }
@@ -56,8 +56,6 @@ public class SearchDate extends Search {
            }catch (InputDataException e){
                System.out.println("Неверный ввод даты ");
            }
-
-
         } while (true);
     }
 }

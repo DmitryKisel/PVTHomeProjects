@@ -25,6 +25,7 @@ public class DateGsonConverter implements JsonDeserializer<Date>{
                 return sdf.parse(jsonElement.getAsString());
 
             }catch (Exception e){
+                System.out.println("Ошибка интерпритации фала");
             }
         }
         return null;

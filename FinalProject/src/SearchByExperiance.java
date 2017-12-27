@@ -15,24 +15,17 @@ public class SearchByExperiance extends Search {
 
             try {
                 String str = reader.readLine();
-
-                final String pattern = "\\d+";
-
-                Pattern p = Pattern.compile(pattern);
+                Pattern p = Pattern.compile("\\d+");
                 Matcher m = p.matcher(str);
 
                 if (!m.matches()) {
-
                     throw new InputDataException();
-
                 } else {
                     int countName = 0;
                     int minValue = Integer.parseInt(str);
                     for (Employee person : list) {
-
-
                         if (person.getYearEperience() >= minValue) {
-                            Main.printEmployee(person);
+                            Employee.printEmployee(person);
                             countName++;
                         }
                     }
@@ -40,14 +33,11 @@ public class SearchByExperiance extends Search {
                         Main.printSearchFail();
                         break;
                     }
-
                     break;
                 }
             } catch (InputDataException e) {
                 System.out.println("Неверный ввод значения ");
             }
-
-
         } while (true);
     }
 }

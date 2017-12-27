@@ -20,8 +20,6 @@ public class MyHandler extends DefaultHandler {
     private Employee employee;
     private String thisElement;
 
-
-
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         isStart = true;
@@ -34,7 +32,6 @@ public class MyHandler extends DefaultHandler {
             employee = new Employee();
             employee.setEmails(new ArrayList<>());
             isFileName = false;
-
         }
     }
 
@@ -58,18 +55,23 @@ public class MyHandler extends DefaultHandler {
                     }
                     break;
                 }
+
                 case "location":{
                     root.setLocation(new String(ch, start, length));
                     break;}
+
                 case "baseSalary":{
                     root.setBaseSalary(Integer.parseInt(new String(ch, start, length)));
                     break;}
+
                 case "id":{
                     employee.setId(Integer.parseInt(new String(ch, start, length)));
                     break;}
+
                 case "degree":
                     employee.setDegree(new String(ch, start, length));
                     break;
+
                 case "dateOfBirth": {
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                     try {
@@ -77,9 +79,9 @@ public class MyHandler extends DefaultHandler {
                     } catch (ParseException e){
                         System.out.println("Ошибка парсинга в Date " + e.toString());
                     }
-
                     break;
                 }
+
                 case "yearEperience": {
                     employee.setYearEperience(Integer.parseInt(new String(ch, start, length)));
                     break;
@@ -94,13 +96,9 @@ public class MyHandler extends DefaultHandler {
                     employee.setVisible(Boolean.parseBoolean(new String(ch, start, length)));
                     break;
                 }
-
-
             }
-
         }
     }
-
     Root getRoot() {
         return root;
     }

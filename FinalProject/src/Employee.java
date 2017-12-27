@@ -1,5 +1,6 @@
 import com.google.gson.annotations.SerializedName;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -14,7 +15,6 @@ public class Employee  {
 
     @SerializedName("visible")
     private boolean isVisible;
-
 
     public int getId() {
         return id;
@@ -72,7 +72,6 @@ public class Employee  {
         isVisible = visible;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -101,7 +100,6 @@ public class Employee  {
         return result;
     }
 
-
     @Override
     public String toString() {
         return "Employee{" +
@@ -113,6 +111,19 @@ public class Employee  {
                 ", emails=" + emails +
                 ", isVisible=" + isVisible +
                 '}';
+    }
+
+    /**
+     * This method prints employee's data in specific format
+     * @param employee
+     */
+    static void printEmployee(Employee employee) {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        System.out.printf("%-30s%-5s%-5d%-30s%-17s%-14s%-7d%-9s%-200s%n", "Ф.И.О: " + employee.getName(),  " ID: ",  employee.getId(),"" +
+                        " Дата рождения: "  + sdf.format(employee.getDateOfBirth()), " Степень: " + employee.getDegree(),
+                " Опыт работы:", employee.getYearEperience(), "e-mails: ", employee.getEmails());
+        System.out.println();
     }
 
 

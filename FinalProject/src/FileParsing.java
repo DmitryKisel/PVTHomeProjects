@@ -5,5 +5,4 @@ import java.io.IOException;
 
 public interface FileParsing {
      Root parseFile(String fileName) throws IOException, ParserConfigurationException, SAXException;
-
-    }
+ }

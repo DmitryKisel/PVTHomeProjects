@@ -5,10 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
-
 public class SearchName extends Search {
-
 
     /**
      * This  method is extended from abstract method searchTool from abstract class Search and does searching by name
@@ -23,9 +20,8 @@ public class SearchName extends Search {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
             try {
-                String str = reader.readLine();
-                String pattern = "[a-zA-Z, ]+";
-                Pattern p = Pattern.compile(pattern);
+                String str = reader.readLine().toLowerCase();
+                Pattern p = Pattern.compile("[a-zA-Z, ]+");
                 Matcher m = p.matcher(str);
                 if (!m.matches()) {
 
@@ -34,25 +30,20 @@ public class SearchName extends Search {
                 } else {
                     int countName = 0;
                     for (Employee person : list) {
-                        if (person.getName().toLowerCase().contains(str.toLowerCase())) {
-                            Main.printEmployee(person);
+                        if (person.getName().toLowerCase().contains(str)) {
+                            Employee.printEmployee(person);
                             countName++;
                         }
                     }
                     if (countName == 0) {
                         Main.printSearchFail();
-
                         break;
                     }
-
                     break;
                 }
             }catch (InputDataException e){
                 System.out.println("Неверный ввод данных");
             }
-
         } while (true);
     }
-
-
 }
