@@ -1,8 +1,8 @@
 package HomeWork11;
 
-import HomeWork11.Entity.Root;
-import org.xml.sax.SAXException ;
 
+import org.xml.sax.SAXException ;
+import HomeWork11.Entity.Root;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
