@@ -16,38 +16,44 @@ public class Catalogizator {
         Map<String, Map<String, List<Song>>> artistMap = new HashMap<>();
 
         for (Mp3File file: mp3FileList){
-            Map<String, List<Song>> albumMap = new HashMap<>();
-            List<Song> songList = new ArrayList<>();
+
+
              if(artistMap.containsKey(file.getArtistName())){
                if(artistMap.get(file.getArtistName()).containsKey(file.getAlbumInFile())){
                    for(Song song: artistMap.get(file.getArtistName()).get(file.getAlbumInFile())){
                        if(song.getSongName().equals(file.getSongInFile())){
                            System.out.println("Песня с такими данными уже есть в каталоге");
-                           System.out.println("Исполнитель : " + file.getArtistName() + " Альбом: " + file.getAlbumInFile() +
-                                   " Композиция: " + file.getSongInFile());
+                           System.out.println("Исполнитель : " + file.getArtistName() + " Альбом: "
+                                   + file.getAlbumInFile() + " Композиция: " + file.getSongInFile());
                            System.out.println("Файл внесенный в каталог: " + song.getPathToFile());
                            System.out.println("Дубликат: " + file.getPathToFile());
                            System.out.println();
 
                        }
                        else{
+                           Map<String, List<Song>> albumMap = artistMap.get(file.getArtistName());
+                           List<Song> songList = albumMap.get(file.getAlbumInFile());
                            Song newSong = new Song(file.getSongInFile(), file.getFileDuration(), file.getPathToFile());
                            songList.add(newSong);
-                           albumMap.put(file.getAlbumInFile(), songList);
+
                            artistMap.put(file.getArtistName(), albumMap);
                        }
                    }
                }
                else {
                    Song newSong = new Song(file.getSongInFile(), file.getFileDuration(), file.getPathToFile());
+                   List<Song> songList = new ArrayList<>();
                    songList.add(newSong);
+                   Map<String, List<Song>> albumMap = new HashMap<>();
                    albumMap.put(file.getAlbumInFile(), songList);
                    artistMap.put(file.getArtistName(), albumMap);
                }
            }
            else {
                  Song newSong = new Song(file.getSongInFile(), file.getFileDuration(), file.getPathToFile());
+                 List<Song> songList = new ArrayList<>();
                  songList.add(newSong);
+                 Map<String, List<Song>> albumMap = new HashMap<>();
                  albumMap.put(file.getAlbumInFile(), songList);
                  artistMap.put(file.getArtistName(), albumMap);
            }
