@@ -3,6 +3,9 @@ package by.itacademy.HomeWork14;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import by.itacademy.HomeWork14.Entity.Mp3File;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
@@ -17,15 +20,22 @@ public class AudioParser {
 
     List<Mp3File> mp3Parser(File[] list) {
         List <Mp3File> mp3FileList = new ArrayList<>();
+
         try {
             for (int i = 0; i < list.length; i++) {
-                InputStream input = new FileInputStream(new File(list[i].toString()));
-                ContentHandler handler = new DefaultHandler();
-                Metadata metadata = new Metadata();
-                Parser parser = new Mp3Parser();
-                ParseContext parseCtx = new ParseContext();
-                parser.parse(input, handler, metadata, parseCtx);
-                input.close();
+                Pattern p = Pattern.compile(".+[.mp3]");
+                Matcher m = p.matcher(list[i].getName());
+
+                if (!m.matches()) {
+                    continue;
+                } else {
+                    InputStream input = new FileInputStream(new File(list[i].toString()));
+                    ContentHandler handler = new DefaultHandler();
+                    Metadata metadata = new Metadata();
+                    Parser parser = new Mp3Parser();
+                    ParseContext parseCtx = new ParseContext();
+                    parser.parse(input, handler, metadata, parseCtx);
+                    input.close();
 
                     String artistName;
                     String albumInFile;
@@ -49,11 +59,12 @@ public class AudioParser {
                     }
 
 
-                Mp3File mp3File = new Mp3File(list[i].getName(), artistName,albumInFile
-                        , songInFile, list[i].toString(),
-                        Double.parseDouble(metadata.get("xmpDM:duration")));
+                    Mp3File mp3File = new Mp3File(list[i].getName(), artistName, albumInFile
+                            , songInFile, list[i].toString(),
+                            Double.parseDouble(metadata.get("xmpDM:duration")));
 
-                mp3FileList.add(mp3File);
+                    mp3FileList.add(mp3File);
+                }
             }
         }catch (NullPointerException e){
             e.printStackTrace();
@@ -65,7 +76,10 @@ public class AudioParser {
             e.printStackTrace();
         } catch (TikaException e) {
             e.printStackTrace();
+        }catch (Exception e){
+            e.printStackTrace();
         }
+
 
         return mp3FileList;
     }

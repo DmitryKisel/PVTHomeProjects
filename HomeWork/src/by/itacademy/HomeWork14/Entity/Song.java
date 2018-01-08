@@ -55,10 +55,15 @@ public class Song {
 
     @Override
     public String toString() {
-        return "Song{" +
-                "songName='" + songName + '\'' +
-                ", duration=" + duration +
-                ", pathToFile='" + pathToFile + '\'' +
-                '}';
+        StringBuilder sb = new StringBuilder();
+          sb.append("\t").append("\t")
+                        .append("song name: ").append(songName)
+                        .append(", duration: ").append(duration)
+                        .append(", path: ").append(pathToFile)
+                        .append("\n");
+    return sb.toString();
     }
+
+
+
 }

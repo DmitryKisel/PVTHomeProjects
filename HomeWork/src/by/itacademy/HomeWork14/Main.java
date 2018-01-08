@@ -23,5 +23,7 @@ public class Main {
 
         CheckSum checkSum = new CheckSum();
         checkSum.checkSumCompare(mp3FileList);
+
+
     }
 }

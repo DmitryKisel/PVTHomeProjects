@@ -30,7 +30,7 @@ public class CheckSum {
         for (Map.Entry<String, Integer> pair: map.entrySet()){
             if(pair.getValue()>1){
                 try {
-                    System.out.println("Контрольная сумма одинакова:");
+                    System.out.println("Контрольная сумма совпадает:");
                     for (Mp3File file : mp3FileList) {
                         if (getMD5Checksum(file.getPathToFile()).equals(pair.getKey())) {
                             System.out.println(file.getPathToFile());
