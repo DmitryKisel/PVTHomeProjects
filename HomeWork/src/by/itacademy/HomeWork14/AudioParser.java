@@ -40,6 +40,7 @@ public class AudioParser {
                     String artistName;
                     String albumInFile;
                     String songInFile;
+                    double duration;
                     if (metadata.get("xmpDM:albumArtist") != null) {
                         artistName = metadata.get("xmpDM:albumArtist");
                     } else {
@@ -58,10 +59,10 @@ public class AudioParser {
                         songInFile = "Non Title";
                     }
 
+                    duration = Math.round(Double.parseDouble(metadata.get("xmpDM:duration"))/1000);
 
                     Mp3File mp3File = new Mp3File(list[i].getName(), artistName, albumInFile
-                            , songInFile, list[i].toString(),
-                            Double.parseDouble(metadata.get("xmpDM:duration")));
+                            , songInFile, list[i].toString(),duration);
 
                     mp3FileList.add(mp3File);
                 }

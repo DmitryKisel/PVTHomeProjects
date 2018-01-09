@@ -58,7 +58,7 @@ public class Song {
         StringBuilder sb = new StringBuilder();
           sb.append("\t").append("\t")
                         .append("song name: ").append(songName)
-                        .append(", duration: ").append(duration)
+                        .append(", duration: ").append(duration).append(" seconds")
                         .append(", path: ").append(pathToFile)
                         .append("\n");
     return sb.toString();
