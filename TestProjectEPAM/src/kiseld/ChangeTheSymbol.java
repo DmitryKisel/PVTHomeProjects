@@ -19,7 +19,9 @@ public class ChangeTheSymbol extends Change {
         for (Sentence sentence: sentenceList){
             splitSentenceToWords.splitToWords(sentence);
             for(Word word : sentence.getWordList()){
-                if(word.getWordContent().contains("\\p{Punct}") || word.getWordContent().equals(" ")){
+                if(word.getWordContent().contains("\\p{Punct}") ||
+                        word.getWordContent().equals(" ")){
+                    continue;
                 }
                 else {
                     if (word.getWordContent().length() >= k+1) {
