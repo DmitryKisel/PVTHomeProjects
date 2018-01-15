@@ -1,4 +1,7 @@
-import java.util.ArrayList;
+package by.itAcademy.finalProject.Domain.Methods;
+
+import by.itAcademy.finalProject.Domain.Entity.Employee;
+
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -9,7 +12,7 @@ public class Jubilee {
      * This method finds out which of employees has an jubilee in the current year and  prints them
      * @param list
      */
-     void jubileeFind(List<Employee> list){
+    public void jubileeFind(List<Employee> list){
 
         Date currentDate = new Date();
         int currentYear = currentDate.getYear()+ 1900;

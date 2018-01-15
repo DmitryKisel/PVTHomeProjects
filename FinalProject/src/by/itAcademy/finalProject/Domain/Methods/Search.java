@@ -1,3 +1,7 @@
+package by.itAcademy.finalProject.Domain.Methods;
+
+import by.itAcademy.finalProject.Domain.Entity.Employee;
+
 import java.io.IOException;
 import java.util.List;
 

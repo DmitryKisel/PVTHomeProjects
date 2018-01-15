@@ -1,3 +1,5 @@
+package by.itAcademy.finalProject.Domain.Entity;
+
 import java.util.List;
 
 public class Root {

@@ -1,3 +1,9 @@
+package by.itAcademy.finalProject.Domain.Methods;
+
+import by.itAcademy.finalProject.Domain.Entity.Employee;
+import by.itAcademy.finalProject.Domain.InputDataException;
+import by.itAcademy.finalProject.Main;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -5,32 +11,25 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SearchName extends Search {
-
-    /**
-     * This  method is extended from abstract method searchTool from abstract class Search and does searching by name
-     * in the incoming List<Employee> list
-     * @param list
-     * @throws IOException
-     */
-    @java.lang.Override
-    public  void searchTool(List<Employee> list) throws IOException {
-
+public class SearchByExperiance extends Search {
+    @Override
+    public void searchTool(List<Employee> list) throws IOException {
         do {
+            System.out.println("Введите требуемое значение опыта работы ");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
             try {
-                String str = reader.readLine().toLowerCase();
-                Pattern p = Pattern.compile("[a-zA-Z, ]+");
+                String str = reader.readLine();
+                Pattern p = Pattern.compile("\\d+");
                 Matcher m = p.matcher(str);
+
                 if (!m.matches()) {
-
                     throw new InputDataException();
-
                 } else {
                     int countName = 0;
+                    int minValue = Integer.parseInt(str);
                     for (Employee person : list) {
-                        if (person.getName().toLowerCase().contains(str)) {
+                        if (person.getYearEperience() >= minValue) {
                             Employee.printEmployee(person);
                             countName++;
                         }
@@ -41,8 +40,8 @@ public class SearchName extends Search {
                     }
                     break;
                 }
-            }catch (InputDataException e){
-                System.out.println("Неверный ввод данных");
+            } catch (InputDataException e) {
+                System.out.println("Неверный ввод значения ");
             }
         } while (true);
     }

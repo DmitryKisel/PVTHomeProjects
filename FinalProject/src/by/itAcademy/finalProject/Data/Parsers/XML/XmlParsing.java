@@ -1,3 +1,7 @@
+package by.itAcademy.finalProject.Data.Parsers.XML;
+
+import by.itAcademy.finalProject.Data.Parsers.FileParsing;
+import by.itAcademy.finalProject.Domain.Entity.Root;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -20,11 +24,11 @@ public class XmlParsing implements FileParsing {
         SAXParserFactory factory = SAXParserFactory.newInstance();
         SAXParser parser = factory.newSAXParser();
         MyHandler handler = new MyHandler();
-       try {
-           parser.parse(fileName, handler);
-       } catch (SAXException e){
-           System.out.println("Ошибка парсинга XML файла " + e.toString());
-       }
+        try {
+            parser.parse(fileName, handler);
+        } catch (SAXException e){
+            System.out.println("Ошибка парсинга XML файла " + e.toString());
+        }
         return handler.getRoot();
     }
 }

@@ -1,3 +1,5 @@
+package by.itAcademy.finalProject.Domain.Entity;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.text.SimpleDateFormat;
@@ -117,7 +119,7 @@ public class Employee  {
      * This method prints employee's data in specific format
      * @param employee
      */
-    static void printEmployee(Employee employee) {
+   public static void printEmployee(Employee employee) {
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         System.out.printf("%-30s%-5s%-5d%-30s%-17s%-14s%-7d%-9s%-200s%n", "Ф.И.О: " + employee.getName(),  " ID: ",  employee.getId(),"" +

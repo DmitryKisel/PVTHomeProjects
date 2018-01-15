@@ -1,13 +1,14 @@
+package by.itAcademy.finalProject.Data.Parsers.XML;
+
+import by.itAcademy.finalProject.Domain.Entity.Employee;
+import by.itAcademy.finalProject.Domain.Entity.Root;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+
 
 /**
  * This class is calling from XmlParsing class and returns back  data from XML file

@@ -1,3 +1,9 @@
+package by.itAcademy.finalProject.Data.Downloader;
+
+import by.itAcademy.finalProject.Data.Parsers.JSON.JsonParsing;
+import by.itAcademy.finalProject.Data.Parsers.XML.XmlParsing;
+import by.itAcademy.finalProject.Domain.Entity.Root;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -10,8 +16,9 @@ public class FileDownload {
     private static final String LINK2 = "http://kiparo.ru/t/birthdays.xml";
     private static  String LINK;
     private static String fileName;
+    public File file;
 
-    public  Root download(int downloadChoice){
+    public File download(int downloadChoice){
         if (downloadChoice == 1) {
             LINK = LINK1;
             fileName = "birthdays.json";
@@ -31,7 +38,7 @@ public class FileDownload {
 
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 inputStream = httpURLConnection.getInputStream();
-                File file = new File(fileName);
+                 file = new File(fileName);
                 fileOutputStream = new FileOutputStream(file);
 
                 int byteRead = -1 ; // к-во полезных байт в буффере. он может не весь заполняться
@@ -40,14 +47,7 @@ public class FileDownload {
                     fileOutputStream.write(buffer, 0, byteRead);
                 }
 
-                if(downloadChoice == 1){
-                    JsonParsing jsonParsing = new JsonParsing();
-                    return jsonParsing.parseFile(fileName);
-                }
-                else if(downloadChoice == 2){
-                    XmlParsing xmlParsing = new XmlParsing();
-                    return  xmlParsing.parseFile(fileName);
-                }
+
 
             }else{
                 System.out.println("Данные не найдены, responseCode = " + responseCode);
@@ -72,6 +72,6 @@ public class FileDownload {
                 }
             }
         }
-        return null;
+        return file;
     }
 }

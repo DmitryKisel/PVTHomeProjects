@@ -1,3 +1,7 @@
+package by.itAcademy.finalProject.Domain.Methods;
+
+import by.itAcademy.finalProject.Domain.Entity.Employee;
+
 import java.util.Comparator;
 import java.util.GregorianCalendar;
 

@@ -1,3 +1,6 @@
+package by.itAcademy.finalProject.Domain.Methods;
+
+import by.itAcademy.finalProject.Domain.Entity.Employee;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -84,7 +87,7 @@ public class AverageAge {
                     break;
                 }
             }
-            System.out.println(sb.toString().);
+            System.out.println(sb.toString());
         }
     }
 }

@@ -1,4 +1,18 @@
+package by.itAcademy.finalProject;
+
+import by.itAcademy.finalProject.Data.Downloader.FileDownload;
+import by.itAcademy.finalProject.Data.Parsers.JSON.JsonParsing;
+import by.itAcademy.finalProject.Data.Parsers.XML.XmlParsing;
+import by.itAcademy.finalProject.Domain.Entity.Employee;
+import by.itAcademy.finalProject.Domain.Entity.Root;
+import by.itAcademy.finalProject.Domain.InputDataException;
+import by.itAcademy.finalProject.Domain.Methods.*;
+import com.google.gson.JsonParseException;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
@@ -8,12 +22,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Main {
-
+    public  static  Root  root;
     public static void main(String[] args) throws IOException {
-        String menuCase = "99";
+        String menuCase;
         String downloadChoice = "0";
 
-        Root root = null;
+
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("Вас приветсвует приложение \"Календарь дней рождений\"");
@@ -21,39 +35,85 @@ public class Main {
         System.out.println();
 
         do{
-        System.out.println("1. Введите 1, если хотите загрузить данные из формата JSON");
-        System.out.println();
-        System.out.println("2. Введите 2, если хотите загрузить данные из формата XML");
-        String str = reader.readLine();
+            System.out.println("1. Введите 1, если хотите загрузить данные из формата JSON");
+            System.out.println();
+            System.out.println("2. Введите 2, если хотите загрузить данные из формата XML");
+            String str = reader.readLine();
 
-        try {
-            checkInput(str, "[1,2]");
-        } catch (InputDataException e) {
-            System.out.println("Неверный ввод данных");
-        }
+            try {
+                checkInput(str, "[1,2]");
+            } catch (InputDataException e) {
+                System.out.println("Неверный ввод данных");
+            }
+            Thread thread;
+            downloadChoice = str;
+            FileDownload fd = new FileDownload();
+            switch (downloadChoice){
+                case "1":{
+                   thread = new Thread(new Runnable() {
+                       @Override
+                       public void  run() {
+                           File file = fd.download(1);
+                           System.out.println("Файл " + file.getName() +  " успешно загружен");
+                           JsonParsing jsonParsing = new JsonParsing();
+                           try {
+                               root = jsonParsing.parseFile(file.getName());
+                               System.out.println("Данные в программу загружены");
 
-        downloadChoice = str;
-        FileDownload fd = new FileDownload();
+                           }catch (JsonParseException e){
+                               System.out.println("Ошибка JSON парсинга");
 
-      switch (downloadChoice){
-          case "1":{
-              root = fd.download(Integer.parseInt(downloadChoice));
-              System.out.println("Данные из файла birthdays.json успешно загружены");
-              break;
-          }
+                           }catch (Exception e){
+                               System.out.println("Ошибка парсинга");
+                           }
+                       }
+                   });
+                   thread.start();
+                    try {
+                        thread.join();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                }
 
-          case "2": {
-              root = fd.download(Integer.parseInt(downloadChoice));
-              System.out.println("Данные из файла birthdays.xml успешно загружены");
-              break;
-          }
+                case "2": {
 
-          default:{
-              downloadChoice = "0";
-          }
-      }
+                    thread = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            File file = fd.download(2);
+                            System.out.println("Файл " + file.getName() +  " успешно загружен");
+                            XmlParsing xmlParsing = new XmlParsing();
+                            try {
+                                root = xmlParsing.parseFile(file.getName());
+                                System.out.println("Данные в программу загружены");
+                            } catch (ParserConfigurationException e) {
+                                System.out.println("Ошибка XML парсинга");
+                                e.printStackTrace();
+                            } catch (SAXException e) {
+                                System.out.println("Ошибка SAX XML парсинга");
+                                e.printStackTrace();
+                            }catch (IOException e){
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+                    thread.start();
+                    try {
+                        thread.join();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                }
+                default:{
+                    downloadChoice = "0";
+                }
+            }
 
-    }while(downloadChoice.equals("0"));
+
+        }while(downloadChoice.equals("0"));
         do {
             System.out.println();
             System.out.println();
@@ -90,9 +150,9 @@ public class Main {
                 }
 
                 case "2": {
-                  SearchByExperiance searchByExperiance = new SearchByExperiance();
-                  searchByExperiance.searchTool(root.getEmployees());
-                  break;
+                    SearchByExperiance searchByExperiance = new SearchByExperiance();
+                    searchByExperiance.searchTool(root.getEmployees());
+                    break;
                 }
 
                 case "3": {
@@ -138,7 +198,7 @@ public class Main {
 
                             case "33": {
                                 AverageAge averageAge = new AverageAge();
-                               averageAge.averageAge(root.getEmployees());
+                                averageAge.averageAge(root.getEmployees());
                                 break;
                             }
 
@@ -166,8 +226,8 @@ public class Main {
 
     /**
      * This method prints when search found no result
-      */
-    static void printSearchFail() {
+     */
+   public static void printSearchFail() {
         System.out.println("Поиск не дал результатов. Совпадений не найдено");
     }
 
@@ -182,10 +242,12 @@ public class Main {
      */
     static void checkInput(String str, String pattern) throws InputDataException{
 
-            Pattern p = Pattern.compile(pattern);
-            Matcher m = p.matcher(str);
-            if (!m.matches()) {
-                throw new InputDataException();
-            }
+        Pattern p = Pattern.compile(pattern);
+        Matcher m = p.matcher(str);
+        if (!m.matches()) {
+            throw new InputDataException();
+        }
     }
+
+
 }
