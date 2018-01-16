@@ -1,18 +1,18 @@
 package kiseld;
 
-import kiseld.Entity.Sentence;
-import kiseld.Entity.Word;
+import kiseld.entity.Sentence;
+import kiseld.entity.Word;
 
 import java.text.BreakIterator;
 import java.util.List;
 
-public class SplitSentenceToWords {
+public class SplitSentenceToWords implements SplitToWords{
     /**
      * This method splits incoming sentence to words and put them in to the list
-     * @param text
      * @return list of words
      */
-    List<Word> splitToWords(Sentence sentence){
+    @Override
+    public List<Word> splitToWords(Sentence sentence){
         BreakIterator br = BreakIterator.getWordInstance();
         br.setText(sentence.getContent());
         int index = 0;

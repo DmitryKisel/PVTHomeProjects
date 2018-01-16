@@ -1,7 +1,7 @@
 package kiseld;
 
-import kiseld.Entity.Sentence;
-import kiseld.Entity.Word;
+import kiseld.entity.Sentence;
+import kiseld.entity.Word;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,10 +11,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Main {
+    private static final String kPattern = "^[1-9]\\d*$";
+    private static final String valuePattern = ".";
 
     public static void main(String[] args) {
         int k = 0;// k - the nomber of the symbol to change
         char value = 0;// value - the value for changing symbol with k number
+
+        if (args.length == 0){
+            System.out.println("No argument found. Run application with argument");
+            System.exit(0);
+        }
 
         SplitToSentence splitToSentence = new SplitTextToSentence();
         List<Sentence> sentenceList = splitToSentence.split(args[0]);
@@ -27,8 +34,8 @@ public class Main {
                 System.out.println("Input the symbol number for replace");
                 String kSymbol = reader.readLine();
                 // This pattern allows to avoid inputting incorrect value of k parameter
-                String pattern = "^[1-9]\\d*$";
-                Pattern p = Pattern.compile(pattern);
+
+                Pattern p = Pattern.compile(kPattern);
                 Matcher m = p.matcher(kSymbol);
 
                 if (!m.matches()) {
@@ -51,11 +58,11 @@ public class Main {
             try {
                 isFilled = false;
                 System.out.println("Input single symbol for replacing the " +
-                        (k + 1) + "symbol in the word");
+                        (k + 1) + " symbol in the word");
                 String valueString = reader.readLine();
                 // This pattern allows to avoid inputting incorrect value of k parameter
-                String pattern = ".";
-                Pattern p = Pattern.compile(pattern);
+
+                Pattern p = Pattern.compile(valuePattern);
                 Matcher m = p.matcher(valueString);
 
                 if (!m.matches()) {
@@ -73,7 +80,9 @@ public class Main {
         } while (isFilled = true);
 
         changeTheSymbol.change(sentenceList, k, value);
+        System.out.println("Original text: ");
         System.out.println(args[0]);
+        System.out.println("Text with replaced " + (k + 1) + " symbol in the words: ");
         printChangedText(sentenceList);
     }
 

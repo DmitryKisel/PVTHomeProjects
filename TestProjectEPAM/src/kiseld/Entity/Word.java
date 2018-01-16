@@ -1,7 +1,7 @@
-package kiseld.Entity;
+package kiseld.entity;
 
 public class Word {
-    String wordContent;
+    private String wordContent;
 
     public String getWordContent() {
         return wordContent;

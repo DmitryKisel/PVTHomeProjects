@@ -1,6 +1,6 @@
 package kiseld;
 
-import kiseld.Entity.Sentence;
+import kiseld.entity.Sentence;
 
 import java.util.List;
 

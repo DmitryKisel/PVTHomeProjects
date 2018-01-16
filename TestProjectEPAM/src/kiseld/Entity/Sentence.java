@@ -1,10 +1,10 @@
-package kiseld.Entity;
+package kiseld.entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Sentence {
-    String content;
+    private String content;
     private List<Word> wordList;
 
     public List<Word> getWordList() {

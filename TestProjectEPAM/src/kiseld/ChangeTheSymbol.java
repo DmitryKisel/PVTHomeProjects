@@ -1,7 +1,7 @@
 package kiseld;
 
-import kiseld.Entity.Sentence;
-import kiseld.Entity.Word;
+import kiseld.entity.Sentence;
+import kiseld.entity.Word;
 
 import java.util.List;
 
@@ -10,14 +10,14 @@ public class ChangeTheSymbol extends Change {
     /**
      * This method changes symbol with number k  for the incoming symbol in the word
      * and saves new value of the word.
-     * @param text
+     * @param
      * @return nothing
      */
     void change(List<Sentence> sentenceList, int k, char value){
-        SplitSentenceToWords splitSentenceToWords = new SplitSentenceToWords();
+        SplitToWords splitToWords = new SplitSentenceToWords();
 
         for (Sentence sentence: sentenceList){
-            splitSentenceToWords.splitToWords(sentence);
+            splitToWords.splitToWords(sentence);
             for(Word word : sentence.getWordList()){
                 if(word.getWordContent().contains("\\p{Punct}") ||
                         word.getWordContent().equals(" ")){
