@@ -1,6 +1,6 @@
-package by.itAcademy.finalProject.Data.Parsers;
+package by.itAcademy.finalProject.data.parsers;
 
-import by.itAcademy.finalProject.Domain.Entity.Root;
+import by.itAcademy.finalProject.domain.entity.Root;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;

@@ -1,7 +1,7 @@
-package by.itAcademy.finalProject.Data.Parsers.XML;
+package by.itAcademy.finalProject.data.parsers.xml;
 
-import by.itAcademy.finalProject.Data.Parsers.FileParsing;
-import by.itAcademy.finalProject.Domain.Entity.Root;
+import by.itAcademy.finalProject.data.parsers.FileParsing;
+import by.itAcademy.finalProject.domain.entity.Root;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -12,7 +12,7 @@ import java.io.IOException;
 public class XmlParsing implements FileParsing {
 
     /**
-     * This method is implemented form FileParsing interface and runs parsing XML-file
+     * This method is implemented form FileParsing interface and runs parsing xml-file
      * @param fileName
      * @return
      * @throws IOException
@@ -27,7 +27,7 @@ public class XmlParsing implements FileParsing {
         try {
             parser.parse(fileName, handler);
         } catch (SAXException e){
-            System.out.println("Ошибка парсинга XML файла " + e.toString());
+            System.out.println("Ошибка парсинга xml файла " + e.toString());
         }
         return handler.getRoot();
     }

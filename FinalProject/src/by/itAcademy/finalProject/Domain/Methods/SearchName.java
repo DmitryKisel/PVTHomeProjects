@@ -1,7 +1,7 @@
-package by.itAcademy.finalProject.Domain.Methods;
+package by.itAcademy.finalProject.domain.methods;
 
-import by.itAcademy.finalProject.Domain.Entity.Employee;
-import by.itAcademy.finalProject.Domain.InputDataException;
+import by.itAcademy.finalProject.domain.entity.Employee;
+import by.itAcademy.finalProject.domain.InputDataException;
 import by.itAcademy.finalProject.Main;
 
 import java.io.BufferedReader;

@@ -1,4 +1,4 @@
-package by.itAcademy.finalProject.Domain;
+package by.itAcademy.finalProject.domain;
 
 public class InputDataException extends Exception {
 }

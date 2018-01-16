@@ -1,10 +1,9 @@
-package by.itAcademy.finalProject.Domain.Entity;
+package by.itAcademy.finalProject.domain.entity;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Employee  {

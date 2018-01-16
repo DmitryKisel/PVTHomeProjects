@@ -1,8 +1,4 @@
-package by.itAcademy.finalProject.Data.Downloader;
-
-import by.itAcademy.finalProject.Data.Parsers.JSON.JsonParsing;
-import by.itAcademy.finalProject.Data.Parsers.XML.XmlParsing;
-import by.itAcademy.finalProject.Domain.Entity.Root;
+package by.itAcademy.finalProject.data.downloader;
 
 import java.io.File;
 import java.io.FileOutputStream;

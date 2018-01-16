@@ -1,7 +1,7 @@
-package by.itAcademy.finalProject.Data.Parsers.JSON;
+package by.itAcademy.finalProject.data.parsers.json;
 
-import by.itAcademy.finalProject.Data.Parsers.FileParsing;
-import by.itAcademy.finalProject.Domain.Entity.Root;
+import by.itAcademy.finalProject.data.parsers.FileParsing;
+import by.itAcademy.finalProject.domain.entity.Root;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -13,7 +13,7 @@ import java.util.Date;
 public class JsonParsing implements FileParsing {
 
     /**
-     * This method is implemented form FileParsing interface and runs parsing JSON-file
+     * This method is implemented form FileParsing interface and runs parsing json-file
      * @param fileName
      * @return
      * @throws IOException

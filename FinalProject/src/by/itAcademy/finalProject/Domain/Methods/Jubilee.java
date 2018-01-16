@@ -1,6 +1,6 @@
-package by.itAcademy.finalProject.Domain.Methods;
+package by.itAcademy.finalProject.domain.methods;
 
-import by.itAcademy.finalProject.Domain.Entity.Employee;
+import by.itAcademy.finalProject.domain.entity.Employee;
 
 import java.util.Date;
 import java.util.GregorianCalendar;

@@ -1,12 +1,12 @@
 package by.itAcademy.finalProject;
 
-import by.itAcademy.finalProject.Data.Downloader.FileDownload;
-import by.itAcademy.finalProject.Data.Parsers.JSON.JsonParsing;
-import by.itAcademy.finalProject.Data.Parsers.XML.XmlParsing;
-import by.itAcademy.finalProject.Domain.Entity.Employee;
-import by.itAcademy.finalProject.Domain.Entity.Root;
-import by.itAcademy.finalProject.Domain.InputDataException;
-import by.itAcademy.finalProject.Domain.Methods.*;
+import by.itAcademy.finalProject.data.downloader.FileDownload;
+import by.itAcademy.finalProject.data.parsers.json.JsonParsing;
+import by.itAcademy.finalProject.data.parsers.xml.XmlParsing;
+import by.itAcademy.finalProject.domain.entity.Employee;
+import by.itAcademy.finalProject.domain.entity.Root;
+import by.itAcademy.finalProject.domain.InputDataException;
+import by.itAcademy.finalProject.domain.methods.*;
 import com.google.gson.JsonParseException;
 import org.xml.sax.SAXException;
 
@@ -15,7 +15,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.regex.Matcher;
@@ -35,9 +34,9 @@ public class Main {
         System.out.println();
 
         do{
-            System.out.println("1. Введите 1, если хотите загрузить данные из формата JSON");
+            System.out.println("1. Введите 1, если хотите загрузить данные из формата json");
             System.out.println();
-            System.out.println("2. Введите 2, если хотите загрузить данные из формата XML");
+            System.out.println("2. Введите 2, если хотите загрузить данные из формата xml");
             String str = reader.readLine();
 
             try {
@@ -61,7 +60,7 @@ public class Main {
                                System.out.println("Данные в программу загружены");
 
                            }catch (JsonParseException e){
-                               System.out.println("Ошибка JSON парсинга");
+                               System.out.println("Ошибка json парсинга");
 
                            }catch (Exception e){
                                System.out.println("Ошибка парсинга");
@@ -89,10 +88,10 @@ public class Main {
                                 root = xmlParsing.parseFile(file.getName());
                                 System.out.println("Данные в программу загружены");
                             } catch (ParserConfigurationException e) {
-                                System.out.println("Ошибка XML парсинга");
+                                System.out.println("Ошибка xml парсинга");
                                 e.printStackTrace();
                             } catch (SAXException e) {
-                                System.out.println("Ошибка SAX XML парсинга");
+                                System.out.println("Ошибка SAX xml парсинга");
                                 e.printStackTrace();
                             }catch (IOException e){
                                 e.printStackTrace();

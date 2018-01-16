@@ -1,4 +1,4 @@
-package by.itAcademy.finalProject.Data.Parsers.JSON;
+package by.itAcademy.finalProject.data.parsers.json;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
@@ -11,7 +11,7 @@ import java.util.Date;
 
 
 /**
- * This class helps to parse Date data from JSON file
+ * This class helps to parse Date data from json file
  */
 public class DateGsonConverter implements JsonDeserializer<Date>{
     private  final  String [] formats = new String[]{
