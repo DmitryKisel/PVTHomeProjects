@@ -48,7 +48,7 @@ public class SearchName extends Search {
                     break;
                 }
             }catch (InputDataException e){
-                System.out.println("Неверный ввод данных");
+                System.out.println("Неверный ввод данных используйте буквы латинского алфавита");
             }
         } while (true);
     }

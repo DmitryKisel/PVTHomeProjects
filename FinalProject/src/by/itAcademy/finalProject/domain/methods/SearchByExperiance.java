@@ -15,7 +15,7 @@ public class SearchByExperiance extends Search {
     @Override
     public void searchTool(List<Employee> list) throws IOException {
         do {
-            System.out.println("Введите требуемое значение опыта работы ");
+            System.out.println("Введите требуемое значение опыта работы (для ввода используйте цифры)");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
             try {

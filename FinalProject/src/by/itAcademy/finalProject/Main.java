@@ -42,7 +42,7 @@ public class Main {
             try {
                 checkInput(str, "[1,2]");
             } catch (InputDataException e) {
-                System.out.println("Неверный ввод данных");
+                System.out.println("Неверный ввод данных.Используйте цифры 1 и 2");
             }
             Thread thread;
             downloadChoice = str;
@@ -106,12 +106,7 @@ public class Main {
                     }
                     break;
                 }
-                default:{
-                    downloadChoice = "0";
-                }
             }
-
-
         }while(downloadChoice.equals("0"));
         do {
             System.out.println();
@@ -133,7 +128,6 @@ public class Main {
                 checkInput(menuCase, "[0-3]");
             } catch (InputDataException e) {
                 System.out.println("Неверный ввод данных");
-                menuCase = "99";
             }
 
             switch (menuCase) {
@@ -176,7 +170,8 @@ public class Main {
                         try {
                             checkInput(str3, "[0-4]");
                         } catch (InputDataException e) {
-                            System.out.println("Неверный ввод данных");
+                            System.out.println("Неверный ввод данных. Для ввода используйте" +
+                                    " цифры от 0 до 4");
                         }
 
                         menuCase = "3"+str3;
@@ -215,10 +210,6 @@ public class Main {
                         }
                     } while (!menuCase.equals("30"));
                 }
-
-                default: {
-                    menuCase = "99";
-                }
             }
         } while (!menuCase.equals("0"));
     }
@@ -247,6 +238,4 @@ public class Main {
             throw new InputDataException();
         }
     }
-
-
 }

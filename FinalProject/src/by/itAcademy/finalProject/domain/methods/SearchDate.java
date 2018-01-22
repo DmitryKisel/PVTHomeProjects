@@ -29,7 +29,7 @@ public class SearchDate extends Search {
 
             try{
                 String str = reader.readLine();
-
+// This pattern made for data input and it 	takes into account leap years, days number in a month and ect.
                 final String pattern = "^(((0[1-9]|[12]\\d|3[01])\\.(0[13578]|1[02])\\.((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]"
                         + "\\d|30)\\.(0[13456789]|1[012])\\.((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\.02\\.((19|[2-9]\\d)"
                         + "\\d{2}))|(29\\.02\\.((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$";
@@ -38,9 +38,7 @@ public class SearchDate extends Search {
                 Matcher m = p.matcher(str);
 
                 if (!m.matches()) {
-
                     throw new InputDataException();
-
                 } else {
                     int countName = 0;
                     for (Employee person : list) {
@@ -56,11 +54,10 @@ public class SearchDate extends Search {
                         Main.printSearchFail();
                         break;
                     }
-
                     break;
                 }
             }catch (InputDataException e){
-                System.out.println("Неверный ввод даты ");
+                System.out.println("Неверный ввод даты используйте формат ввода dd.MM.yyyy");
             }
         } while (true);
     }
